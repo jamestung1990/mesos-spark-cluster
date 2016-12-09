@@ -3,7 +3,10 @@
 # Created: M. Massenzio, 2015-04-02
 
 source `dirname $0`/common.sh
-declare -r VERSION=${1:-"0.22.0"}
+declare -r VERSION=${1:-"1.1.0"}
+
+cp build-mesos.sh $dir/
+cp common.sh $dir/
 
 # Get Mesos - update the $VERSION if you need a more recent release
 declare -r dir="${HOME}/mesos-dev"
@@ -18,6 +21,7 @@ if [[ ! -e "mesos-$VERSION.tar.gz" ]]; then
     exit 1
 fi
 tar -zxf mesos-$VERSION.tar.gz
+rm mesos-$VERSION.tar.gz
 
 # Change working directory (the actual name will depend on Mesos version no.)
 cd $dir/mesos-$VERSION
@@ -25,7 +29,6 @@ cd $dir/mesos-$VERSION
 # Running the build script
 msg "Running the Build script"
 wrap `dirname $0`/build-mesos.sh
-
 
 read -p "Do you want to run a test framework (y/n)? " choice
 if [[ $choice == 'y' ]]; then
