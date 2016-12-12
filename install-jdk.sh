@@ -21,12 +21,17 @@ echo "Verify Java version:"
 update-alternatives --display java
 update-alternatives --display javac
 java -version
+javac -version
 
 export JAVA_HOME="/opt/jdk/jdk1.8.0_112"
 echo "export JAVA_HOME=/opt/jdk/jdk1.8.0_112" >> ~/.profile
 source ~/.profile
+<<<<<<< HEAD
 
 echo "export PATH=\"$PATH:$JAVA_HOME/bin\""
+=======
+export PATH="$PATH:$JAVA_HOME/bin"
+>>>>>>> 9e398352932c310e4a094ee7a327c8a716152893
 echo "export PATH=\"$PATH:$JAVA_HOME/bin\"" >> ~/.profile
 source ~/.profile
 
